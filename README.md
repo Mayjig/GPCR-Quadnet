@@ -102,13 +102,18 @@ Before training or prediction, generate cached embeddings from the CSV files.
 Each row creates one ligand embedding and one protein embedding with matching
 integer filenames such as `0.pt`, `1.pt`, and so on.
 
+By default, `extract_embedding.py` looks for ChemBERTa at `./chemberta` inside
+this repository. If your ChemBERTa files are stored somewhere else, pass the
+path explicitly with `--chemberta-dir /path/to/chemberta`.
+
 Training split:
 
 ```bash
 python extract_embedding.py \
   --csv data/train_tmp.csv \
   --drug-dir preprocessing/training/drug_train \
-  --protein-dir preprocessing/training/protein_train
+  --protein-dir preprocessing/training/protein_train \
+  --chemberta-dir /path/to/chemberta
 ```
 
 Validation split:
